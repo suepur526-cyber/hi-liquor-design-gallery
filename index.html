@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HI LIQUOR | Design Prototype Gallery</title>
+  <style>
+    :root { color-scheme: light; --ink:#17201c; --muted:#66716b; --line:#d9ded8; --accent:#174d3d; --paper:#f4f5f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif; }
+    header { padding:42px 5vw 30px; border-bottom:1px solid var(--line); background:#fff; }
+    h1 { margin:0 0 8px; font:600 clamp(28px,4vw,54px)/1.05 Georgia,serif; letter-spacing:0; }
+    header p { max-width:720px; margin:0; color:var(--muted); }
+    .meta { display:flex; gap:18px; flex-wrap:wrap; margin-top:20px; color:var(--accent); font-weight:600; }
+    main { width:min(1500px,90vw); margin:34px auto 60px; }
+    h2 { margin:30px 0 14px; font:600 25px/1.1 Georgia,serif; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+    .grid figure { margin:0; background:#fff; border:1px solid var(--line); cursor:zoom-in; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+    .grid figure:hover, .grid figure:focus-visible { transform:translateY(-3px); border-color:var(--accent); box-shadow:0 12px 30px rgba(23,77,61,.14); outline:none; }
+    figure.featured { border:2px solid var(--accent); }
+    figure img { display:block; width:100%; aspect-ratio:3/2; object-fit:cover; background:#e9ece7; }
+    figcaption { padding:13px 14px 15px; }
+    figcaption strong { display:block; font-size:14px; }
+    figcaption small { display:block; margin-top:5px; color:var(--muted); }
+    .tag { display:inline-block; margin-top:9px; padding:3px 7px; border:1px solid #b7c8bd; color:var(--accent); font-size:11px; letter-spacing:.04em; text-transform:uppercase; }
+    #previewModal[hidden] { display:none; }
+    #previewModal { position:fixed; inset:0; z-index:20; display:grid; place-items:center; padding:24px; background:rgba(10,18,15,.78); }
+    .preview-dialog { position:relative; display:grid; grid-template-rows:auto 1fr; width:min(1280px,96vw); max-height:calc(100vh - 48px); overflow:hidden; background:#fff; border:1px solid rgba(255,255,255,.55); box-shadow:0 24px 70px rgba(0,0,0,.36); }
+    .preview-toolbar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 16px; color:var(--ink); border-bottom:1px solid var(--line); }
+    .preview-title { min-width:0; }
+    .preview-title strong, .preview-title small { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .preview-title small { margin-top:2px; color:var(--muted); }
+    .preview-actions { display:flex; flex:0 0 auto; gap:8px; }
+    .preview-actions button { width:38px; height:34px; border:1px solid var(--line); background:#fff; color:var(--ink); font:600 18px/1 system-ui,sans-serif; cursor:pointer; }
+    .preview-actions button:hover, .preview-actions button:focus-visible { border-color:var(--accent); color:var(--accent); outline:none; }
+    .preview-stage { position:relative; display:grid; place-items:center; min-height:0; padding:18px; background:#edf0eb; }
+    .preview-stage img { display:block; max-width:100%; max-height:calc(100vh - 150px); width:auto; height:auto; object-fit:contain; }
+    body.preview-open { overflow:hidden; }
+    @media (max-width:900px) { main { width:92vw; } }
+    @media (max-width:520px) { main { width:92vw; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HI LIQUOR / Prototype Gallery</h1>
+    <p>32 high-fidelity desktop homepage directions. The latest batch is 23–32. Select a direction first, then combine the strongest catalogue and conversion modules before implementation.</p>
+    <div class="meta"><span>32 complete</span><span>Latest batch: 23–32</span><span>5 shortlisted</span></div>
+  </header>
+  <main>
+    <h2>All prototypes</h2>
+    <div class="grid">
+      <figure id="v01"><img src="variant-01-editorial.png" alt="Variant 01 editorial"><figcaption><strong>01 / Editorial</strong><small>Magazine-led premium shop</small></figcaption></figure>
+      <figure id="v02"><img src="variant-02-cellar-noir.png" alt="Variant 02 cellar noir"><figcaption><strong>02 / Cellar noir</strong><small>Dark cellar specialist</small></figcaption></figure>
+      <figure id="v03"><img src="variant-03-australian-modern.png" alt="Variant 03 Australian modern"><figcaption><strong>03 / Australian modern</strong><small>Local contemporary retail</small></figcaption></figure>
+      <figure id="v04"><img src="variant-04-tasting-room.png" alt="Variant 04 tasting room"><figcaption><strong>04 / Tasting room</strong><small>Hospitality-inspired commerce</small></figcaption></figure>
+      <figure id="v05"><img src="variant-05-maison.png" alt="Variant 05 maison"><figcaption><strong>05 / Maison</strong><small>French house direction</small></figcaption></figure>
+      <figure id="v06"><img src="variant-06-gallery-brutalist.png" alt="Variant 06 gallery brutalist"><figcaption><strong>06 / Gallery brutalist</strong><small>Art-led grid system</small></figcaption></figure>
+      <figure id="v07"><img src="variant-07-private-club.png" alt="Variant 07 private club"><figcaption><strong>07 / Private club</strong><small>Member-led luxury</small></figcaption></figure>
+      <figure id="v08"><img src="variant-08-modern-art-deco.png" alt="Variant 08 modern art deco"><figcaption><strong>08 / Modern art deco</strong><small>Decorative premium retail</small></figcaption></figure>
+      <figure id="v09"><img src="variant-09-premium-shop.png" alt="Variant 09 premium shop"><figcaption><strong>09 / Premium shop</strong><small>General premium catalogue</small></figcaption></figure>
+      <figure id="v10"><img src="variant-10-dark-shop.png" alt="Variant 10 dark shop"><figcaption><strong>10 / Dark shop</strong><small>Dark conversion-first store</small></figcaption></figure>
+      <figure id="v11"><img src="variant-11-australian-shop.png" alt="Variant 11 Australian shop"><figcaption><strong>11 / Australian shop</strong><small>Local bottle shop</small></figcaption></figure>
+      <figure id="v12"><img src="variant-12-commerce-editorial.png" alt="Variant 12 commerce editorial"><figcaption><strong>12 / Commerce editorial</strong><small>Editorial catalogue blend</small></figcaption></figure>
+      <figure id="v13"><img src="variant-13-obsidian-gold-commerce.png" alt="Variant 13 obsidian gold commerce"><figcaption><strong>13 / Obsidian gold</strong><small>Collector commerce</small></figcaption></figure>
+      <figure id="v14"><img src="variant-14-ivory-heritage-market.png" alt="Variant 14 ivory heritage market"><figcaption><strong>14 / Ivory heritage</strong><small>Heritage merchant</small></figcaption></figure>
+      <figure id="v15"><img src="variant-15-forest-copper-shop.png" alt="Variant 15 forest copper shop"><figcaption><strong>15 / Forest copper</strong><small>Botanical premium</small></figcaption></figure>
+      <figure id="v16"><img src="variant-16-marble-cellar-market.png" alt="Variant 16 marble cellar market"><figcaption><strong>16 / Marble cellar</strong><small>Architectural luxury</small></figcaption></figure>
+      <figure id="v17"><img src="variant-17-coastal-australian-store.png" alt="Variant 17 coastal Australian store"><figcaption><strong>17 / Coastal Australian</strong><small>Coastal local retail</small></figcaption></figure>
+      <figure id="v18"><img src="variant-18-burgundy-collector-shop.png" alt="Variant 18 burgundy collector shop"><figcaption><strong>18 / Burgundy collector</strong><small>Collector-led catalogue</small></figcaption></figure>
+      <figure id="v19"><img src="variant-19-swiss-spirit-catalog.png" alt="Variant 19 Swiss spirit catalog"><figcaption><strong>19 / Swiss spirit catalogue</strong><small>Precision information design</small></figcaption></figure>
+      <figure id="v20"><img src="variant-20-midnight-copper-boutique.png" alt="Variant 20 midnight copper boutique"><figcaption><strong>20 / Midnight copper</strong><small>Boutique night retail</small></figcaption></figure>
+      <figure id="v21"><img src="variant-21-japanese-minimal-retail.png" alt="Variant 21 Japanese minimal retail"><figcaption><strong>21 / Japanese minimal</strong><small>Quiet craft retail</small></figcaption></figure>
+      <figure id="v22"><img src="variant-22-editorial-marketplace.png" alt="Variant 22 editorial marketplace"><figcaption><strong>22 / Editorial marketplace</strong><small>Magazine marketplace</small></figcaption></figure>
+      <figure id="v23" class="featured"><img src="variant-23-japanese-sake-whisky-store.png" alt="Variant 23 Japanese sake whisky store"><figcaption><strong>23 / Japanese sake and whisky</strong><small>Washi, cedar, tasting notes and gift flow</small><span class="tag">shortlist 01</span></figcaption></figure>
+      <figure id="v24" class="featured"><img src="variant-24-australian-coastal-bottle-shop.png" alt="Variant 24 Australian coastal bottle shop"><figcaption><strong>24 / Australian coastal bottle shop</strong><small>Local discovery, trust strip and broad catalogue</small><span class="tag">shortlist 02</span></figcaption></figure>
+      <figure id="v25" class="featured"><img src="variant-25-scottish-traditional-merchant.png" alt="Variant 25 Scottish traditional merchant"><figcaption><strong>25 / Scottish traditional merchant</strong><small>Deep filters, limited releases and buying guide</small><span class="tag">shortlist 03</span></figcaption></figure>
+      <figure id="v26"><img src="variant-26-mediterranean-wine-spirit-market.png" alt="Variant 26 Mediterranean wine spirit market"><figcaption><strong>26 / Mediterranean market</strong><small>Region-led wine and spirits discovery</small></figcaption></figure>
+      <figure id="v27" class="featured"><img src="variant-27-sydney-night-boutique.png" alt="Variant 27 Sydney night boutique"><figcaption><strong>27 / Sydney night boutique</strong><small>Express delivery and quick purchase</small><span class="tag">shortlist 04</span></figcaption></figure>
+      <figure id="v28"><img src="variant-28-botanical-gin-lab-store.png" alt="Variant 28 botanical gin lab store"><figcaption><strong>28 / Botanical gin lab</strong><small>Flavour wheel and shelf builder</small></figcaption></figure>
+      <figure id="v29"><img src="variant-29-vintage-railway-liquor-merchant.png" alt="Variant 29 vintage railway liquor merchant"><figcaption><strong>29 / Vintage railway merchant</strong><small>Region route strip and gift vouchers</small></figcaption></figure>
+      <figure id="v30"><img src="variant-30-jewel-box-rare-whisky-shop.png" alt="Variant 30 jewel box rare whisky shop"><figcaption><strong>30 / Jewel-box rare whisky</strong><small>Scarcity, authenticity and collector UX</small></figcaption></figure>
+      <figure id="v31"><img src="variant-31-australian-outback-contemporary.png" alt="Variant 31 Australian outback contemporary"><figcaption><strong>31 / Australian outback contemporary</strong><small>Origin cards and local producers</small></figcaption></figure>
+      <figure id="v32" class="featured"><img src="variant-32-designer-editorial-liquor-market.png" alt="Variant 32 designer editorial liquor market"><figcaption><strong>32 / Designer editorial market</strong><small>Recommendation rail, quiz and buying guide</small><span class="tag">shortlist 05</span></figcaption></figure>
+    </div>
+  </main>
+  <div id="previewModal" hidden aria-hidden="true">
+    <section class="preview-dialog" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+      <div class="preview-toolbar">
+        <div class="preview-title"><strong id="previewTitle"></strong><small id="previewNote"></small></div>
+        <div class="preview-actions">
+          <button type="button" id="previousButton" title="Previous prototype" aria-label="Previous prototype">&#8592;</button>
+          <button type="button" id="nextButton" title="Next prototype" aria-label="Next prototype">&#8594;</button>
+          <button type="button" id="closeButton" title="Close preview" aria-label="Close preview">&times;</button>
+        </div>
+      </div>
+      <div class="preview-stage"><img id="previewImage" alt=""></div>
+    </section>
+  </div>
+  <script>
+    (() => {
+      const cards = [...document.querySelectorAll('.grid figure')];
+      const modal = document.getElementById('previewModal');
+      const image = document.getElementById('previewImage');
+      const title = document.getElementById('previewTitle');
+      const note = document.getElementById('previewNote');
+      const closeButton = document.getElementById('closeButton');
+      const previousButton = document.getElementById('previousButton');
+      const nextButton = document.getElementById('nextButton');
+      let activeIndex = 0;
+      let lastFocused = null;
+
+      cards.forEach((card, index) => {
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', 'Open ' + card.querySelector('strong').textContent + ' preview');
+        card.addEventListener('click', () => openPreview(index));
+        card.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openPreview(index);
+          }
+        });
+      });
+
+      function openPreview(index) {
+        activeIndex = (index + cards.length) % cards.length;
+        const card = cards[activeIndex];
+        const cardImage = card.querySelector('img');
+        lastFocused = document.activeElement;
+        image.src = cardImage.src;
+        image.alt = cardImage.alt;
+        title.textContent = card.querySelector('strong').textContent;
+        note.textContent = card.querySelector('small').textContent + '  ·  ' + (activeIndex + 1) + ' / ' + cards.length;
+        modal.hidden = false;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('preview-open');
+        closeButton.focus();
+      }
+
+      function closePreview() {
+        modal.hidden = true;
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('preview-open');
+        if (lastFocused) lastFocused.focus();
+      }
+
+      function move(step) {
+        openPreview(activeIndex + step);
+      }
+
+      closeButton.addEventListener('click', closePreview);
+      previousButton.addEventListener('click', () => move(-1));
+      nextButton.addEventListener('click', () => move(1));
+      modal.addEventListener('click', event => { if (event.target === modal) closePreview(); });
+      document.addEventListener('keydown', event => {
+        if (modal.hidden) return;
+        if (event.key === 'Escape') closePreview();
+        if (event.key === 'ArrowLeft') move(-1);
+        if (event.key === 'ArrowRight') move(1);
+      });
+    })();
+  </script>
+</body>
+</html>
